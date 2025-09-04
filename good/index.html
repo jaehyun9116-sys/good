@@ -1,0 +1,63 @@
+<!-- filepath: /workspaces/good/1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .seating-chart {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .seat {
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .seat.selected {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Seating Arrangement Program</h1>
+    <div class="seating-chart" id="seatingChart"></div>
+    <script>
+        const seatingChart = document.getElementById('seatingChart');
+        const totalSeats = 20;
+
+        function createSeats() {
+            for (let i = 1; i <= totalSeats; i++) {
+                const seat = document.createElement('div');
+                seat.classList.add('seat');
+                seat.textContent = `Seat ${i}`;
+                seat.addEventListener('click', () => {
+                    seat.classList.toggle('selected');
+                });
+                seatingChart.appendChild(seat);
+            }
+        }
+
+        createSeats();
+    </script>
+</body>
+</html>
